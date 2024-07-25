@@ -9,7 +9,7 @@ import { olympicModel } from '../models/Olympic';
 })
 export class OlympicService implements OnInit {
   private olympicUrl: string = './assets/mock/olympic.json';
-  private olympics$ = new BehaviorSubject<any>(undefined);//???
+  private olympics$ = new BehaviorSubject<olympicModel[]>([new olympicModel]);//???
 
   constructor(private http: HttpClient) { }
 
@@ -19,19 +19,19 @@ export class OlympicService implements OnInit {
   }
 
   loadInitialData() {
-    return this.http.get<any>(this.olympicUrl).pipe(
+    return this.http.get<olympicModel[]>(this.olympicUrl).pipe(
       tap((value) => this.olympics$.next(value)),
       catchError((error, caught) => {
         // TODO: improve error handling
         console.error(error);
         // can be useful to end loading state and let the user know something went wrong
-        this.olympics$.next(null);
+        this.olympics$.next([new olympicModel]);
         return caught;
       })
     );
   }
 
-  getOlympics(): Observable<any> {
+  getOlympics(): Observable<olympicModel[]> {
     return this.olympics$.asObservable();
   }
 
