@@ -1,8 +1,33 @@
 # OlympicGamesStarter
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.3.
+## Requirements :
+Don't forget to install :
 
-Don't forget to install your node_modules before starting (`npm install`).
+* NPM & NODE :
+
+Run the command `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash ` in a terminal.
+
+Relaunch your terminal then run `nvm install 20`.
+
+You can check versions with :
+
+`node -v` which should print `v20.16.0` and `npm -v`. with `10.8.1`
+
+* Ngx-chart :
+
+Run theses commands in a terminal located in the project directory :
+
+`npm i @swimlane/ngx-charts`
+
+`npm install @types/d3 --save-dev`
+
+### Before launch :
+
+Run `npm install` in the project directory.
+
+Then run `npm i -g @angular/cli` to setup angular.
+
+Whould you like to share pseudonymous datas : `n`
 
 ## Development server
 
@@ -11,19 +36,3 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Where to start
-
-As you can see, an architecture has already been defined for the project. It is just a suggestion, you can choose to use your own. The predefined architecture includes (in addition to the default angular architecture) the following:
-
-- `components` folder: contains every reusable components
-- `pages` folder: contains components used for routing
-- `core` folder: contains the business logic (`services` and `models` folders)
-
-I suggest you to start by understanding this starter code. Pay an extra attention to the `app-routing.module.ts` and the `olympic.service.ts`.
-
-Once mastered, you should continue by creating the typescript interfaces inside the `models` folder. As you can see I already created two files corresponding to the data included inside the `olympic.json`. With your interfaces, improve the code by replacing every `any` by the corresponding interface.
-
-You're now ready to implement the requested features.
-
-Good luck!
