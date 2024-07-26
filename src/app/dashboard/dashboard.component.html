@@ -7,21 +7,24 @@
 <h1>Medals per country</h1>
 <div class="flex-row">
     <div class="flex-column">
-        <p>Number of JOs</p>
+        <p class="custom-margin">Number of JOs</p>
         <p>{{olympics[0].participations.length}}</p>
     </div>
     <div class="flex-column">
-        <p>Number of countries</p>
+        <p class="custom-margin">Number of countries</p>
         <p>{{olympics.length}}</p>
     </div>
 </div>
-<!-- <ngx-charts-pie-chart
-    [results]="data">
-    [scheme]="colorScheme">
-    <ng-template #tooltipTemplate let-model="model">
+
+<ngx-charts-pie-chart [results]="data" [scheme]="colorSchemePC">
+
+</ngx-charts-pie-chart>
+
+<!-- <ngx-charts-pie-chart [results]="olympics" [scheme]="colorSchemePC"> -->
+  <!-- <ng-template #tooltipTemplate let-model="model">
     <h1>
-        {{model.name}}
+      {{olympics[0].id}}
     </h1>
-    <h2>{{model.value}}%</h2>
-    </ng-template>
-</ngx-charts-pie-chart> -->
+    <h2>{{olympics[0].country}}%</h2>
+  </ng-template> -->
+<!-- </ngx-charts-pie-chart> -->

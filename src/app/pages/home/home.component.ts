@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit {
       if((this.tabOlympicModel != undefined)&&
        (this.tabOlympicModel[0].participations[0] != undefined)){
         console.log("DATA CONTENT : ", data);
-        //this.dashboard.drawDashBoard(this.tabOlympicModel);
+        this.dashboard.drawDashBoard(this.tabOlympicModel);
       }
       // if((this.tabOlympicModel != undefined)&&
       // (this.tabOlympicModel[0].participations[0] != undefined)){
