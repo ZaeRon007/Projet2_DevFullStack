@@ -8,11 +8,11 @@
 <div class="flex-row">
     <div class="flex-column">
         <p class="custom-margin">Number of JOs</p>
-        <p>{{olympics[0].participations.length}}</p>
+        <p>{{NbrJOs}}</p>
     </div>
     <div class="flex-column">
         <p class="custom-margin">Number of countries</p>
-        <p>{{olympics.length}}</p>
+        <p>{{NbrCountry}}</p>
     </div>
 </div>
 
@@ -20,7 +20,7 @@
 
 </ngx-charts-pie-chart>
 
-<!-- <ngx-charts-pie-chart [results]="olympics" [scheme]="colorSchemePC"> -->
+<!-- <ngx-charts-pie-chart [results]="dataInterfaces" [scheme]="colorSchemePC"> -->
   <!-- <ng-template #tooltipTemplate let-model="model">
     <h1>
       {{olympics[0].id}}

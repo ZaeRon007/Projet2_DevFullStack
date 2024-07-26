@@ -23,14 +23,9 @@ export class HomeComponent implements OnInit {
       this.tabOlympicModel = data;
       if((this.tabOlympicModel != undefined)&&
        (this.tabOlympicModel[0].participations[0] != undefined)){
-        console.log("DATA CONTENT : ", data);
-        this.dashboard.drawDashBoard(this.tabOlympicModel);
+        // console.log("DATA CONTENT : ", data);
+         this.dashboard.drawDashBoard(this.tabOlympicModel);
       }
-      // if((this.tabOlympicModel != undefined)&&
-      // (this.tabOlympicModel[0].participations[0] != undefined)){
-      //   console.log("element = ", this.tabOlympicModel[0].participations[0].city);
-      //   console.log("content", this.tabOlympicModel);
-      // }
     });
   }
 }

@@ -1,6 +1,6 @@
-import { Component, input, Input, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, Input } from '@angular/core';
 import { olympicModel } from '../core/models/Olympic';
-import { dataFormat } from '../core/models/DataFormat';
+import { dataInterface } from '../core/models/DataFormat';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,10 +8,10 @@ import { dataFormat } from '../core/models/DataFormat';
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
 })
-export class DashboardComponent implements OnInit{
-  @Input() olympics: olympicModel[] = [];
-  public dataFormatted: dataFormat = new dataFormat("",0);
+export class DashboardComponent {
+  // @Input() olympics: olympicModel[] = [];
 
+  public dataInterfaces: Array<dataInterface> = new Array<dataInterface>();
   public colorSchemePC: string = "vivid";
 
   data = [
@@ -20,41 +20,44 @@ export class DashboardComponent implements OnInit{
     {'name' : "< 90", 'value' : 84}
   ];
 
-  // public data: string[][] = [[],[]];
   public NbrCountry!: number;
   public NbrJOs!: number;
 
-  ngOnInit(): void {
-    
+  drawDashBoard(input: olympicModel[]): void{
+
+    if(input.length > 1){
+
+      for(let i = 0; i < input.length; i++){
+        // let local: dataInterface = this.newElement(input[i].country,input[i].id);
+        this.dataInterfaces = this.addElement(this.dataInterfaces, input[i].country,input[i].id);
+      }
+      console.log("data :", this.data)
+      console.log("test dataInterfaces : ",this.dataInterfaces);  
+
+      // this.data = [...this.dataInterfaces];
+      console.log("data_updated :", this.data)
+
+    }
   }
 
-  drawDashBoard(input: olympicModel[]): void{
-    
-    // for(let i = 0; i < input.length; i++){
-    //   console.log("i=",i);
-    //   this.data[i][0] = input[i].id.toString();
-    //   this.data[i][1] = input[i].country.toString();
-    //   console.log("id : country => ",this.data[i][0]," : ", this.data[i][1]);
 
-    //   for(let j = 0; j < input[i].participations.length; j++){
-          
-    //   }
+  addElement(pInput1: Array<dataInterface>, country: string,  score: number): Array<dataInterface>{
+    // if(pInput1 == undefined){
+    //     return pInput2;
     // }
-    
-    // data = [
-    //   { 'name' : "> 95", 'value' : 765 },
-    //   {'name' : "90 - 94", 'value' : 123},
-    //   {'name' : "< 90", 'value' : 84}
-    // ];
+    // else{
+    //     Array.prototype.push.apply(pInput1,pInput2);
+    //     return pInput1;
+    // }
+    // console.log("pInput1 : ", pInput1);
+    return pInput1 = [...pInput1, { 'name' : country, 'value' : score }];
+  }
 
-    if(input[0] != undefined){
-      for(let i = 0; i <= input.length; i++){
-        this.dataFormatted.newElement(input[i].country,0);
-      }
-
-      console.log("test : ",this.dataFormatted);
-      // this.data = tab;
+  newElement(country: string,  score: number): dataInterface{
+    let local: dataInterface = {
+        name:country,
+        value:score
     }
-    
+    return local;
   }
 }
