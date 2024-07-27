@@ -8,23 +8,19 @@
 <div class="flex-row">
     <div class="flex-column">
         <p class="custom-margin">Number of JOs</p>
-        <p>{{NbrJOs}}</p>
+        <p class="custom-text">{{this.NbrJOs}}</p>
     </div>
     <div class="flex-column">
         <p class="custom-margin">Number of countries</p>
-        <p>{{NbrCountry}}</p>
+        <p class="custom-text">{{this.NbrCountry}}</p>
     </div>
 </div>
 
-<ngx-charts-pie-chart [results]="data" [scheme]="colorSchemePC">
-
-</ngx-charts-pie-chart>
-
-<!-- <ngx-charts-pie-chart [results]="dataInterfaces" [scheme]="colorSchemePC"> -->
+<ngx-charts-pie-chart *ngIf="data && data.length" [results]="data">
   <!-- <ng-template #tooltipTemplate let-model="model">
     <h1>
-      {{olympics[0].id}}
+      {{dataInterfaces[0].name}}
     </h1>
-    <h2>{{olympics[0].country}}%</h2>
+    <h2>{{dataInterfaces[0].value}}</h2>
   </ng-template> -->
-<!-- </ngx-charts-pie-chart> -->
+</ngx-charts-pie-chart>
