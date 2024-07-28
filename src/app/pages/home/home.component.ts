@@ -9,23 +9,5 @@ import { DashboardComponent } from 'src/app/dashboard/dashboard.component';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent implements OnInit {
-  public olympics$!: Observable<olympicModel[]>;
-  public tabOlympicModel: olympicModel[] = [];
-  private dashboard: DashboardComponent = new DashboardComponent();
-
-  constructor(private olympicService: OlympicService) {
-  }
-
-  ngOnInit(): void {
-    this.olympics$ = this.olympicService.getOlympics();
-    this.olympics$.subscribe((data : olympicModel[]) => {
-      this.tabOlympicModel = data;
-      if((this.tabOlympicModel != undefined)&&
-       (this.tabOlympicModel[0].participations[0] != undefined)){
-        console.log("DATA CONTENT : ", this.tabOlympicModel);
-        this.dashboard.drawDashBoard(this.tabOlympicModel);
-      }
-    });
-  }
+export class HomeComponent {
 }

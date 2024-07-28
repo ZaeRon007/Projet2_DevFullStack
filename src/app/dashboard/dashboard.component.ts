@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { olympicModel } from '../core/models/Olympic';
-// import { dataInterface } from '../core/models/DataFormat';
 import { participationsModel } from '../core/models/Participation';
+import { Observable, Subject } from 'rxjs';
+import { OlympicService } from '../core/services/olympic.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,10 +10,9 @@ import { participationsModel } from '../core/models/Participation';
   styleUrl: './dashboard.component.scss'
 })
 export class DashboardComponent implements OnInit{
-  // @Input() olympics: olympicModel[] = [];
-  // public colorSchemePC: string = "vivid";
-
-  // public dataInterfaces: Array<dataInterface> = new Array<dataInterface>();
+  public olympics$!: Observable<olympicModel[]>;
+  public tabOlympicModel: olympicModel[] = [];
+  
   data = [
     { 'name' : "test", 'value' : 10}
   ];
@@ -21,8 +21,19 @@ export class DashboardComponent implements OnInit{
   public NbrJOs: number = 0;
   public first: boolean = true;
 
+  constructor(private olympicService: OlympicService) {
+  }
+
   ngOnInit(): void {
-    console.log("onInit : data = ", this.data);
+    this.olympics$ = this.olympicService.getOlympics();
+    this.olympics$.subscribe((data : olympicModel[]) => {
+      this.tabOlympicModel = data;
+      if((this.tabOlympicModel != undefined)&&
+       (this.tabOlympicModel[0].participations[0] != undefined)){
+        console.log("DATA CONTENT : ", this.tabOlympicModel);
+        this.drawDashBoard(this.tabOlympicModel);
+      }
+    });
     
   }
 
@@ -35,7 +46,7 @@ export class DashboardComponent implements OnInit{
 
       this.namesAndScoreByCountry(input);
 
-      console.log("data :", this.data)
+      // console.log("data :", this.data);
     }
   }
   
