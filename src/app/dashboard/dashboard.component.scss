@@ -1,56 +1,50 @@
-*{
-    font-family: "Roboto", sans-serif;
-    font-weight: 500;
-    font-style: normal;
-}
-
 h1 {
     display: flex;
     justify-content: center;
-    font-size: 2.2rem;
+    font-size: 2.6rem;
     border: 1px solid #04838F;
     border-radius: 15px;
     color: white;
     background-color: #04838F;
-    width: 350px;
+    width: 400px;
+    padding-top: 8px;
+    padding-bottom: 8px;
     margin: auto;
+    margin-top: 50px;
 }
-
-// div {
-//     font-size: 1.2em;
-// }
 
 p {
     display: flex;
     justify-content: center;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     color: rgb(131, 131, 131);
 }
 .flex-row {
 display: flex;
 flex-direction: row;
 justify-content: center;
+margin-top: 15px;
 }
 
 .flex-column {
 display: flex;
 flex-direction: column;
-// padding: 0px 10px 0px 10px;
-padding-left: 10px;
-padding-right: 10px;
+padding-left: 30px;
+padding-right: 30px;
+padding-bottom: -5px;
 border: 2px solid #04838F;
 border-radius: 15px;
 margin: 30px;
 }
 
 .custom-margin {
-    margin-bottom: -5px;
+    margin-bottom: -15px;
 }
 
 ngx-charts-pie-chart {
-    width: 500px;
-    height: 500px;
     resize: none;
+    // margin: auto;
+    // justify-content: center;
 }
 
 .custom-text {
