@@ -29,7 +29,6 @@ export class DashboardComponent implements OnInit{
       this.tabOlympicModel = data;
       if((this.tabOlympicModel != undefined)&&
        (this.tabOlympicModel[0].participations[0] != undefined)){
-        console.log("DATA CONTENT : ", this.tabOlympicModel);
         this.drawDashBoard(this.tabOlympicModel);
       }
     });

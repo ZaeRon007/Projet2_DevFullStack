@@ -23,11 +23,8 @@ export class DetailsComponent implements OnInit{
   public CountryId!: number;
 
   public xLabel: string = 'Years';
-  public yLabel: string = 'Medals';
   
-  // yScaleMax = 60;
   showXAxisLabel = true;
-  showYAxisLabel = true;
   showXAxis = true;
   showYAxis = true;
   showGridLines = true;
@@ -45,7 +42,6 @@ export class DetailsComponent implements OnInit{
       this.tabOlympicModel = data;
       if((this.tabOlympicModel != undefined)&&
        (this.tabOlympicModel[0].participations[0] != undefined)){
-        console.log("DATA CONTENT from details: ", this.tabOlympicModel);
 
         this.country = this.getCountryNameById(this.CountryId);
         this.NbrEntries = this.getNbrOfEntriesByCountry(this.CountryId);
@@ -53,7 +49,6 @@ export class DetailsComponent implements OnInit{
         this.TotalNbrAtheletes = this.getNbrOfAthletesByCountry(this.tabOlympicModel[this.CountryId - 1].participations);
 
         this.setupDatas();
-        console.log(this.data);
       }
 
     
