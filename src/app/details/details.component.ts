@@ -22,7 +22,16 @@ export class DetailsComponent implements OnInit{
   public TotalNbrAtheletes!: number;
   public CountryId!: number;
 
-
+  public xLabel: string = 'Years';
+  public yLabel: string = 'Medals';
+  
+  // yScaleMax = 60;
+  showXAxisLabel = true;
+  showYAxisLabel = true;
+  showXAxis = true;
+  showYAxis = true;
+  showGridLines = true;
+  
   constructor(private olympicService: OlympicService,
               private route: ActivatedRoute){
 
@@ -84,8 +93,6 @@ export class DetailsComponent implements OnInit{
       serie = [...serie, {name: this.tabOlympicModel[this.CountryId - 1].participations[i].year.toString(), 
                           value: this.tabOlympicModel[this.CountryId - 1].participations[i].medalsCount}];
     }
-
-    // fill data with theses info
     this.data = [...this.data, {name: this.country, series: serie}];
   }
 }

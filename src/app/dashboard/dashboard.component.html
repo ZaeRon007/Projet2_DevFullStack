@@ -1,25 +1,29 @@
 <!-- <p>{{olympics | json }}</p> -->
-<h1>Medals per country</h1>
+<h2>Medals per country</h2>
 <div class="flex-row">
     <div class="flex-column">
-        <p class="custom-margin">Number of JOs</p>
-        <p class="custom-text">{{this.NbrJOs}}</p>
+        <p class="custom-margin-p1">Number of JOs</p>
+        <p class="custom-margin-p2 custom-text">{{this.NbrJOs}}</p>
     </div>
     <div class="flex-column">
-        <p class="custom-margin">Number of countries</p>
-        <p class="custom-text">{{this.NbrCountry}}</p>
+        <p class="custom-margin-p1">Number of countries</p>
+        <p class="custom-margin-p2 custom-text">{{this.NbrCountry}}</p>
     </div>
 </div>
 
 <ngx-charts-pie-chart [results]="data" 
                       [labels]="true"
+                      [view]="[650,650]"
                       [maxLabelLength]="20"
                       (select)="onSelect($event)"
                       class="pie-chart">
    <ng-template #tooltipTemplate let-model="model" >
     <div class="tooltip-area">
-      <p class="custom-margin small-text">{{model.name}}</p>
-      <p class="small-text">{{model.value}}</p>
+      <p class="custom-margin-tooltip-p1 small-text">{{model.name}}</p>
+      <div class="flex-row">
+        <img class="img" src="./assets/images/medaille-logo.png" alt="logo-médaille" >
+        <p class="custom-margin-tooltip-p2 small-text">{{model.value}}</p>
+      </div>
     </div>
   </ng-template>
 </ngx-charts-pie-chart>

@@ -4,3 +4,87 @@
     font-weight: 400;
     font-style: normal;
 }
+
+h2 {
+    display: flex;
+    justify-content: center;
+    font-size: 2.6rem;
+    border: 1px solid #04838F;
+    border-radius: 15px;
+    color: white;
+    background-color: #04838F;
+    width: 400px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    margin: auto;
+    margin-top: 50px;
+}
+
+p {
+    display: flex;
+    justify-content: center;
+    font-size: 1.4rem;
+    color: rgb(131, 131, 131);
+}
+.flex-row {
+display: flex;
+flex-direction: row;
+justify-content: center;
+margin-top: 10px;
+}
+
+.flex-column {
+display: flex;
+flex-direction: column;
+padding-left: 30px;
+padding-right: 30px;
+padding-bottom: -5px;
+border: 2px solid #04838F;
+border-radius: 15px;
+margin: 30px;
+}
+
+
+.custom-text {
+    font-weight: 900;
+    color: black;
+}
+
+.custom-margin-p1 {
+    margin-bottom: 0px;
+    margin-top: 10px;
+}
+
+.custom-margin-p2 {
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+
+// text.pie-label {
+text, text.ng-star-inserted {
+    font-size: 1.4rem !important;
+}
+
+.ngx-charts .gridline-path {
+    stroke: black !important;
+    stroke-width: 0.7px !important;
+}
+
+path.pie-label-line, 
+path.line {
+    stroke-width: 3px;
+}
+
+//.ngx-charts-tooltip-content.type-tooltip.tooltip-caret.position-top
+.ngx-charts-tooltip-content.type-tooltip{
+    background: #04838F !important;
+}
+
+.tooltip-caret.position-top {
+    border-top: 7px solid #04838F !important;
+}
+
+.ngx-charts-tooltip-content.position-top {
+    transform: translateY(70px) !important;
+}
