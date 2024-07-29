@@ -17,9 +17,11 @@ You can check versions with :
 
 Run theses commands in a terminal located in the project directory :
 
-`npm i @swimlane/ngx-charts`
+`npm install @swimlane/ngx-charts`
 
 `npm install @types/d3 --save-dev`
+
+`npm install @angular/animations`
 
 ### Before launch :
 
