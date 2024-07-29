@@ -1,1 +1,17 @@
-<p>details works!</p>
+<h1>{{country}}</h1>
+<div class=" flex-row">
+    <div class="flex-column">
+        <p class="custom-margin">Number of entries</p>
+        <p class="custom-text">{{NbrEntries}}</p>
+    </div>
+    <div class="flex-column">
+        <p class="custom-margin">Total number medals</p>
+        <p class="custom-text">{{TotalNbrMedals}}</p>
+    </div>
+    <div class="flex-column">
+        <p class="custom-margin">Total number of athletes</p>
+        <p class="custom-text">{{TotalNbrAtheletes}}</p>
+    </div>
+</div>
+
+<ngx-charts-line-chart [results]="data"/>
