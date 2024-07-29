@@ -1,9 +1,4 @@
 <!-- <p>{{olympics | json }}</p> -->
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-
 <h1>Medals per country</h1>
 <div class="flex-row">
     <div class="flex-column">
@@ -16,11 +11,15 @@
     </div>
 </div>
 
-<ngx-charts-pie-chart *ngIf="data && data.length" [results]="data">
-  <!-- <ng-template #tooltipTemplate let-model="model">
-    <h1>
-      {{dataInterfaces[0].name}}
-    </h1>
-    <h2>{{dataInterfaces[0].value}}</h2>
-  </ng-template> -->
+<ngx-charts-pie-chart [results]="data" 
+                      [labels]="true"
+                      [maxLabelLength]="20"
+                      (select)="onSelect($event)"
+                      class="pie-chart">
+   <ng-template #tooltipTemplate let-model="model" >
+    <div class="tooltip-area">
+      <p class="custom-margin small-text">{{model.name}}</p>
+      <p class="small-text">{{model.value}}</p>
+    </div>
+  </ng-template>
 </ngx-charts-pie-chart>

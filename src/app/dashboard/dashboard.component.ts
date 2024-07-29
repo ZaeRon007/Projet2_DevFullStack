@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { olympicModel } from '../core/models/Olympic';
 import { participationsModel } from '../core/models/Participation';
-import { Observable, Subject } from 'rxjs';
+import { Observable } from 'rxjs';
 import { OlympicService } from '../core/services/olympic.service';
+import { Router } from '@angular/router';
+import { pieChart } from '../core/models/chartInterface';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,16 +14,13 @@ import { OlympicService } from '../core/services/olympic.service';
 export class DashboardComponent implements OnInit{
   public olympics$!: Observable<olympicModel[]>;
   public tabOlympicModel: olympicModel[] = [];
-  
-  data = [
-    { 'name' : "test", 'value' : 10}
-  ];
-
+  public data: pieChart[] = [];
   public NbrCountry: number = 0;
   public NbrJOs: number = 0;
   public first: boolean = true;
 
-  constructor(private olympicService: OlympicService) {
+  constructor(private olympicService: OlympicService,
+              private route: Router) {
   }
 
   ngOnInit(): void {
@@ -34,7 +33,6 @@ export class DashboardComponent implements OnInit{
         this.drawDashBoard(this.tabOlympicModel);
       }
     });
-    
   }
 
   drawDashBoard(input: olympicModel[]): void{
@@ -43,10 +41,7 @@ export class DashboardComponent implements OnInit{
 
       this.NbrCountry = this.getCoutryNbr(input);
       this.NbrJOs = this.getNbrOfJOs(input);
-
       this.namesAndScoreByCountry(input);
-
-      // console.log("data :", this.data);
     }
   }
   
@@ -95,5 +90,17 @@ export class DashboardComponent implements OnInit{
       integer += input[j].medalsCount;
     }
     return integer;
+  }
+
+  searchIdByName(name: string): number{
+    for( let i = 0; i < this.tabOlympicModel.length; i++){
+      if(name === this.data[i].name)
+        return this.tabOlympicModel[i].id;      
+    }
+    return -1;
+  }
+
+  onSelect(event: any): void {
+    this.route.navigateByUrl(`details/${this.searchIdByName(event.name)}`);
   }
 }
