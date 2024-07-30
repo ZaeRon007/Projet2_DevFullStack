@@ -80,7 +80,7 @@ p {
 }
 
 
-@media (max-width:390px){
+@media (max-width:600px){
     h2 {
         font-size: 2rem;
         width: 350px;
@@ -132,7 +132,10 @@ p {
     }
 
     g.pie-chart {
-        transform: scale(1) translate(165px, 180px)
+        // transform: scale(1) translate(165px, 180px)
+        display: flex;
+        margin: auto;
+        transform: translateY(180px);
     }
 
     div.ngx-charts-outer {
@@ -153,7 +156,7 @@ p {
     }
 }
 
-@media (max-width:810px) and (min-width:391px) {
+@media (max-width:810px) and (min-width:600px) {
     h2 {
         font-size: 2.5rem;
         width: 600px;
@@ -170,42 +173,50 @@ p {
         font-size: 1.4rem;
     }
 
-    .pie-chart {
-        margin-top: 20px;
-        padding-top: -50px;
-    }
-
+    
     .custom-margin-tooltip-p1{
         margin-top: 10px;
         margin-bottom: 0px;
         margin-left: 0px;
         margin-right: 0px;
     }
-
+    
     .custom-margin-tooltip-p2{
         margin-top: -10px;
         margin-bottom: 10px;
     }
-
+    
     .marginTop30px{
         margin-top: 30px;
     }
-
+    
     text.ng-star-inserted, text.pie-label {
         font-size: 1.47rem !important;
     }
-
+    
     path.pie-label-line, path.line {
         stroke-width: 2.5px;
     }
-
+    
     g.pie-chart {
-        transform: scale(0.9) translate(410px, 340px);
+        // transform: scale(0.9) translate(410px, 340px);
+        transform: scale(0.9);
+        transform: translateY(340px);
+        
+        // margin: auto;
     }
-
+    
+    .pie-chart {
+        margin-top: 20px;
+        padding-top: -50px;
+    }
+    
     div.ngx-charts-outer {
         height: 350px !important;
-        transform: scale(0.95) translate(0px,0px);
+        // transform: scale(0.95) translate(0px,0px);
+        display: flex;
+        transform: scale(0.95);
+        margin: auto;
     }
 
     .ngx-charts-tooltip-content.position-top {
@@ -221,7 +232,7 @@ p {
     }
 }
 
-@media (min-width:850px){
+@media (min-width:811px){
     h2 {
         font-size: 2.5rem;
         width: 600px;
