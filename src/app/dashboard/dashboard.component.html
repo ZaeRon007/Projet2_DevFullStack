@@ -2,7 +2,7 @@
 
 <h2>Medals per country</h2>
 
-<div class="flex-row">
+<div class="flex-row marginTop30px">
 
     <div class="flex-column">
         <p class="custom-margin-p1">Number of JOs</p>
@@ -16,8 +16,7 @@
 </div>
 
 <ngx-charts-pie-chart [results]="data" 
-                      [labels]="true"
-                      [view]="[650,650]"
+                      [labels]="true"                      
                       [maxLabelLength]="20"
                       (select)="onSelect($event)"
                       class="pie-chart">
@@ -27,7 +26,7 @@
     <div class="tooltip-area">
       <p class="custom-margin-tooltip-p1 small-text">{{model.name}}</p>
       
-      <div class="flex-row">
+      <div class="flex-row-fix">
         <img class="img" src="./assets/images/medaille-logo.png" alt="logo-médaille" >
         <p class="custom-margin-tooltip-p2 small-text">{{model.value}}</p>
       </div>

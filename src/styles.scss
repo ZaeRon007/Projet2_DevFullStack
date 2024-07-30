@@ -16,7 +16,7 @@ h2 {
     padding-top: 8px;
     padding-bottom: 8px;
     margin: auto;
-    margin-top: 50px;
+    margin-top: 20px;
 }
 
 p {
@@ -25,11 +25,19 @@ p {
     font-size: 1.4rem;
     color: rgb(131, 131, 131);
 }
+
 .flex-row {
 display: flex;
 flex-direction: row;
 justify-content: center;
 margin-top: 10px;
+}
+
+.flex-row-fix{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 10px;
 }
 
 .flex-column {
@@ -42,7 +50,6 @@ border: 2px solid #04838F;
 border-radius: 15px;
 margin: 30px;
 }
-
 
 .custom-text {
     font-weight: 900;
@@ -59,25 +66,11 @@ margin: 30px;
     margin-top: 10px;
 }
 
-text.ng-star-inserted, text.pie-label {
-    font-size: 1.4rem !important;
-}
-
-text {
-    font-size: 2rem;
-}
-
 .ngx-charts .gridline-path {
     stroke: black !important;
     stroke-width: 0.7px !important;
 }
 
-path.pie-label-line, 
-path.line {
-    stroke-width: 3px;
-}
-
-//.ngx-charts-tooltip-content.type-tooltip.tooltip-caret.position-top
 .ngx-charts-tooltip-content.type-tooltip{
     background: #04838F !important;
 }
@@ -86,6 +79,158 @@ path.line {
     border-top: 7px solid #04838F !important;
 }
 
-.ngx-charts-tooltip-content.position-top {
-    transform: translateY(70px) !important;
+// .ngx-charts-tooltip-content.position-top {
+//     transform: translateY(70px) !important;
+// }
+
+@media screen and (max-width:390px){
+    h2 {
+        font-size: 2rem;
+        width: 350px;
+        margin-top: 40px;
+    }
+
+    .flex-column {
+        padding-left: 7px;
+        padding-right: 7px;
+        margin: 10px;
+    }
+
+    .flex-row {
+        margin-top: 10px;
+        flex-direction: column;
+    }
+
+    p {
+        font-size: 1.1rem;
+    }
+
+    .pie-chart {
+        margin-top: 20px;
+        padding-top: -50px;
+    }
+
+    .custom-margin-tooltip-p1{
+        margin-top: 10px;
+        margin-bottom: 0px;
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+    
+    .custom-margin-tooltip-p2{
+        margin-top: -10px;
+        margin-bottom: 10px;
+    }
+    
+    .marginTop30px{
+        margin-top: 30px;
+    }
+
+    text.ng-star-inserted, text.pie-label {
+        font-size: 1.1rem !important;
+    }
+    
+    path.pie-label-line, path.line {
+        stroke-width: 1.5px;
+    }
+
+    g.pie-chart {
+        transform: translate(160px, 150px)
+        //transform: translateY(150px);
+    }
+
+    div.ngx-charts-outer {
+        // width: 350px !important;
+        height: 350px !important;
+    }
+
+    .ngx-charts-tooltip-content.position-top {
+        transform: translateY(30px) !important;
+    }
+
+    svg.ngx-charts {
+        height: 350px;
+    }
+
+    text {
+        font-size: 1.2rem;
+    }
+}
+
+@media screen and (min-width: 390) and (max-width:810){
+    h2 {
+        font-size: 2rem;
+        width: 350px;
+        margin-top: 40px;
+    }
+
+    .flex-column {
+        padding-left: 7px;
+        padding-right: 7px;
+        margin: 10px;
+    }
+
+    .flex-row {
+        margin-top: 10px;
+        flex-direction: column;
+    }
+
+    p {
+        font-size: 1.1rem;
+    }
+
+    .pie-chart {
+        margin-top: 20px;
+        padding-top: -50px;
+    }
+
+    .custom-margin-tooltip-p1{
+        margin-top: 10px;
+        margin-bottom: 0px;
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+    
+    .custom-margin-tooltip-p2{
+        margin-top: -10px;
+        margin-bottom: 10px;
+    }
+    
+    .marginTop30px{
+        margin-top: 30px;
+    }
+
+    text.ng-star-inserted, text.pie-label {
+        font-size: 1.1rem !important;
+    }
+    
+    path.pie-label-line, path.line {
+        stroke-width: 1.5px;
+    }
+
+    g.pie-chart {
+        transform: translate(160px, 150px)
+        //transform: translateY(150px);
+    }
+
+    div.ngx-charts-outer {
+        // width: 350px !important;
+        height: 350px !important;
+    }
+
+    .ngx-charts-tooltip-content.position-top {
+        transform: translateY(30px) !important;
+    }
+
+    svg.ngx-charts {
+        height: 350px;
+    }
+
+    text {
+        font-size: 1.2rem;
+    }
+}
+
+@media screen and (min-width:850){
+
 }

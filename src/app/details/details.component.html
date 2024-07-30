@@ -1,7 +1,7 @@
 <app-header/>
 
 <h2>{{country}}</h2>
-<div class="flex-row divBackButton" routerLink="">
+<div class="flex-row-fix divBackButton" routerLink="">
     <img class="img" src="./assets/images/retour.png" alt="flèche retour" routerLink="">
     <a class="buttonTextColor" routerLink="">GO BACK</a>
 </div>
@@ -21,7 +21,6 @@
 </div>
 
 <ngx-charts-line-chart  [results]="data" 
-                        [view]="[800,500]"
                         [xAxis]="showXAxis"
                         [yAxis]="showYAxis"
                         [showGridLines]="showGridLines"
