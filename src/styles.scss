@@ -27,10 +27,10 @@ p {
 }
 
 .flex-row {
-display: flex;
-flex-direction: row;
-justify-content: center;
-margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 10px;
 }
 
 .flex-row-fix{
@@ -41,14 +41,14 @@ margin-top: 10px;
 }
 
 .flex-column {
-display: flex;
-flex-direction: column;
-padding-left: 30px;
-padding-right: 30px;
-padding-bottom: -5px;
-border: 2px solid #04838F;
-border-radius: 15px;
-margin: 30px;
+    display: flex;
+    flex-direction: column;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: -5px;
+    border: 2px solid #04838F;
+    border-radius: 15px;
+    margin: 30px;
 }
 
 .custom-text {
@@ -79,11 +79,8 @@ margin: 30px;
     border-top: 7px solid #04838F !important;
 }
 
-// .ngx-charts-tooltip-content.position-top {
-//     transform: translateY(70px) !important;
-// }
 
-@media screen and (max-width:390px){
+@media (max-width:390px){
     h2 {
         font-size: 2rem;
         width: 350px;
@@ -93,7 +90,7 @@ margin: 30px;
     .flex-column {
         padding-left: 7px;
         padding-right: 7px;
-        margin: 10px;
+        margin: 5px;
     }
 
     .flex-row {
@@ -103,7 +100,7 @@ margin: 30px;
 
     p {
         font-size: 1.1rem;
-    }
+    }    
 
     .pie-chart {
         margin-top: 20px;
@@ -116,12 +113,12 @@ margin: 30px;
         margin-left: 0px;
         margin-right: 0px;
     }
-    
+
     .custom-margin-tooltip-p2{
         margin-top: -10px;
         margin-bottom: 10px;
     }
-    
+
     .marginTop30px{
         margin-top: 30px;
     }
@@ -129,19 +126,18 @@ margin: 30px;
     text.ng-star-inserted, text.pie-label {
         font-size: 1.1rem !important;
     }
-    
+
     path.pie-label-line, path.line {
         stroke-width: 1.5px;
     }
 
     g.pie-chart {
-        transform: translate(160px, 150px)
-        //transform: translateY(150px);
+        transform: scale(1) translate(165px, 180px)
     }
 
     div.ngx-charts-outer {
-        // width: 350px !important;
-        height: 350px !important;
+        height: 300px !important;
+        // transform: scale(0.8) translate(5px,-80px);
     }
 
     .ngx-charts-tooltip-content.position-top {
@@ -157,26 +153,21 @@ margin: 30px;
     }
 }
 
-@media screen and (min-width: 390) and (max-width:810){
+@media (max-width:810px) and (min-width:391px) {
     h2 {
-        font-size: 2rem;
-        width: 350px;
+        font-size: 2.5rem;
+        width: 600px;
         margin-top: 40px;
     }
 
     .flex-column {
-        padding-left: 7px;
-        padding-right: 7px;
-        margin: 10px;
-    }
-
-    .flex-row {
-        margin-top: 10px;
-        flex-direction: column;
+        padding-left: 15px;
+        padding-right: 15px;
+        margin: 5px;
     }
 
     p {
-        font-size: 1.1rem;
+        font-size: 1.4rem;
     }
 
     .pie-chart {
@@ -190,36 +181,35 @@ margin: 30px;
         margin-left: 0px;
         margin-right: 0px;
     }
-    
+
     .custom-margin-tooltip-p2{
         margin-top: -10px;
         margin-bottom: 10px;
     }
-    
+
     .marginTop30px{
         margin-top: 30px;
     }
 
     text.ng-star-inserted, text.pie-label {
-        font-size: 1.1rem !important;
+        font-size: 1.47rem !important;
     }
-    
+
     path.pie-label-line, path.line {
-        stroke-width: 1.5px;
+        stroke-width: 2.5px;
     }
 
     g.pie-chart {
-        transform: translate(160px, 150px)
-        //transform: translateY(150px);
+        transform: scale(0.9) translate(410px, 340px);
     }
 
     div.ngx-charts-outer {
-        // width: 350px !important;
         height: 350px !important;
+        transform: scale(0.95) translate(0px,0px);
     }
 
     .ngx-charts-tooltip-content.position-top {
-        transform: translateY(30px) !important;
+        transform: translateY(70px) !important;
     }
 
     svg.ngx-charts {
@@ -227,10 +217,77 @@ margin: 30px;
     }
 
     text {
-        font-size: 1.2rem;
+        font-size: 1.575rem;
     }
 }
 
-@media screen and (min-width:850){
+@media (min-width:850px){
+    h2 {
+        font-size: 2.5rem;
+        width: 600px;
+        margin-top: 40px;
+    }
+
+    .flex-column {
+        padding-left: 15px;
+        padding-right: 15px;
+        margin: 30px;
+    }
+
+    p {
+        font-size: 1.4rem;
+    }
+
+    .pie-chart {
+        margin-top: 20px;
+        padding-top: -50px;
+    }
+
+    .custom-margin-tooltip-p1{
+        margin-top: 10px;
+        margin-bottom: 0px;
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+
+    .custom-margin-tooltip-p2{
+        margin-top: -10px;
+        margin-bottom: 10px;
+    }
+
+    .marginTop30px{
+        margin-top: 30px;
+    }
+
+    text.ng-star-inserted, text.pie-label {
+        font-size: 1.764rem !important;
+    }
+
+    path.pie-label-line, path.line {
+        stroke-width: 2.5px;
+    }
+
+    g.pie-chart {
+        transform: translate(920px, 350px);
+    }
+
+    div.ngx-charts-outer {
+        height: 350px !important;
+        transform: scale(0.95) translate(0px,0px);
+    }
+
+    .ngx-charts-tooltip-content.position-top {
+        transform: translateY(80px) !important;
+    }
+
+    svg.ngx-charts {
+        height: 350px;
+        transform: scale(0.8) translate(0px,-100px);
+
+    }
+
+    text {
+        font-size: 1.8rem;
+    }
 
 }
