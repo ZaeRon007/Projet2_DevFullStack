@@ -112,8 +112,7 @@ p {
     .pie-chart {
         margin-top: 20px;
         padding-top: -50px;
-        // display: flex;
-        // align-self: center;
+        align-items: center;
     }
 
     .custom-margin-tooltip-p1{
@@ -140,15 +139,6 @@ p {
         stroke-width: 1.5px;
     }
 
-    // g.pie-chart {
-    //     // transform: scale(1) translate(165px, 180px)
-    //     // display: flex;
-    //     // margin: auto;
-    //     // height: 150vh;
-    //     // transform: translateY(180px);
-    //     // margin-top: -150px;
-    // }
-
     div.ngx-charts-outer {
         height: 300px !important;
         // transform: scale(0.8) translate(5px,-80px);
@@ -167,82 +157,7 @@ p {
     }
 }
 
-@media (max-width:810px) and (min-width:600px) {
-    h2 {
-        font-size: 2.5rem;
-        width: 600px;
-        margin-top: 40px;
-    }
-
-    .flex-column {
-        padding-left: 15px;
-        padding-right: 15px;
-        margin: 5px;
-    }
-
-    p {
-        font-size: 1.4rem;
-    }
-
-
-    .custom-margin-tooltip-p1{
-        margin-top: 10px;
-        margin-bottom: 0px;
-        margin-left: 0px;
-        margin-right: 0px;
-    }
-
-    .custom-margin-tooltip-p2{
-        margin-top: -10px;
-        margin-bottom: 10px;
-    }
-
-    .marginTop30px{
-        margin-top: 30px;
-    }
-
-    text.ng-star-inserted, text.pie-label {
-        font-size: 1.47rem !important;
-    }
-
-    path.pie-label-line, path.line {
-        stroke-width: 2.5px;
-    }
-
-    // g.pie-chart {
-    //     // transform: scale(0.9) translate(410px, 340px);
-    //     transform: scale(0.9);
-    //     transform: translateY(340px);
-
-    //     // margin: auto;
-    // }
-
-    .pie-chart {
-        margin-top: 20px;
-        padding-top: -50px;
-    }
-
-    div.ngx-charts-outer {
-        height: 350px !important;
-        // transform: scale(0.95) translate(0px,0px);
-        transform: scale(0.95);
-        // transform: translateX(width/2);
-    }
-
-    .ngx-charts-tooltip-content.position-top {
-        transform: translateY(70px) !important;
-    }
-
-    svg.ngx-charts {
-        height: 350px;
-    }
-
-    text {
-        font-size: 1.575rem;
-    }
-}
-
-@media (min-width:811px){
+@media (min-width:601px){
     h2 {
         font-size: 2.5rem;
         width: 600px;
@@ -261,7 +176,9 @@ p {
 
     .pie-chart {
         margin-top: 20px;
-        padding-top: -50px;
+        // padding-top: -50px;
+        align-items: center;
+        
     }
 
     .custom-margin-tooltip-p1{

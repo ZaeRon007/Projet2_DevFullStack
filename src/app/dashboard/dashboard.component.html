@@ -15,22 +15,25 @@
     </div>
 </div>
 
-<ngx-charts-pie-chart [results]="data" 
-                      [labels]="true"                      
-                      [maxLabelLength]="20"
-                      (select)="onSelect($event)"
-                      class="pie-chart">
-
-   <ng-template #tooltipTemplate let-model="model" >
-
-    <div class="tooltip-area">
-      <p class="custom-margin-tooltip-p1 small-text">{{model.name}}</p>
-      
-      <div class="flex-row-fix">
-        <img class="img" src="./assets/images/medaille-logo.png" alt="logo-médaille" >
-        <p class="custom-margin-tooltip-p2 small-text">{{model.value}}</p>
+<div #containeRef>
+  <ngx-charts-pie-chart [results]="data" 
+                        [view]="[containeRef.clientWidth * 1.2,containeRef.clientHeight * 1.2]"
+                        [labels]="true"                      
+                        [maxLabelLength]="20"
+                        (select)="onSelect($event)"
+                        class="pie-chart">
+  
+     <ng-template #tooltipTemplate let-model="model" >
+  
+      <div class="tooltip-area">
+        <p class="custom-margin-tooltip-p1 small-text">{{model.name}}</p>
+        
+        <div class="flex-row-fix">
+          <img class="img" src="./assets/images/medaille-logo.png" alt="logo-médaille" >
+          <p class="custom-margin-tooltip-p2 small-text">{{model.value}}</p>
+        </div>
+        
       </div>
-      
-    </div>
-  </ng-template>
-</ngx-charts-pie-chart>
+    </ng-template>
+  </ngx-charts-pie-chart>
+</div>
