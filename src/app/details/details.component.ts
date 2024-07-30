@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { OlympicService } from '../core/services/olympic.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { olympicModel } from '../core/models/Olympic';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { participationsModel } from '../core/models/Participation';
 import { lineChart, serie } from '../core/models/chartInterface';
 
@@ -11,10 +11,12 @@ import { lineChart, serie } from '../core/models/chartInterface';
   templateUrl: './details.component.html',
   styleUrl: './details.component.scss'
 })
-export class DetailsComponent implements OnInit{
+export class DetailsComponent implements OnInit, OnDestroy{
   public olympics$!: Observable<olympicModel[]>;
   public tabOlympicModel: olympicModel[] = [];
   public data: lineChart[] = [];
+
+  public subscription!: Subscription;
   
   public country!: string;
   public NbrEntries!: number;
@@ -39,7 +41,7 @@ export class DetailsComponent implements OnInit{
     this.CountryId = parseInt(this.activatedRoute.snapshot.params['id']);
 
     this.olympics$ = this.olympicService.getOlympics();
-    this.olympics$.subscribe((data : olympicModel[]) => {
+    this.subscription = this.olympics$.subscribe((data : olympicModel[]) => {
       this.tabOlympicModel = data;
       if((this.tabOlympicModel != undefined)&&
        (this.tabOlympicModel[0].participations[0] != undefined)){
@@ -49,16 +51,17 @@ export class DetailsComponent implements OnInit{
           this.NbrEntries = this.getNbrOfEntriesByCountry(this.CountryId);
           this.TotalNbrMedals = this.getScoreByCountry(this.tabOlympicModel[this.CountryId - 1].participations);
           this.TotalNbrAtheletes = this.getNbrOfAthletesByCountry(this.tabOlympicModel[this.CountryId - 1].participations);
-  
           this.setupDatas();
         }
         else{
           this.route.navigateByUrl('**');
         }
       }
-
-    
     });
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 
   getCountryNameById(id: number): string{

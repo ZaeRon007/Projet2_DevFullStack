@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { olympicModel } from '../core/models/Olympic';
 import { participationsModel } from '../core/models/Participation';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { OlympicService } from '../core/services/olympic.service';
 import { Router } from '@angular/router';
 import { pieChart } from '../core/models/chartInterface';
@@ -11,10 +11,11 @@ import { pieChart } from '../core/models/chartInterface';
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
 })
-export class DashboardComponent implements OnInit{
+export class DashboardComponent implements OnInit, OnDestroy{
   public olympics$!: Observable<olympicModel[]>;
   public tabOlympicModel: olympicModel[] = [];
   public data: pieChart[] = [];
+  public subscription!: Subscription;
   public NbrCountry: number = 0;
   public NbrJOs: number = 0;
   public first: boolean = true;
@@ -25,13 +26,17 @@ export class DashboardComponent implements OnInit{
 
   ngOnInit(): void {
     this.olympics$ = this.olympicService.getOlympics();
-    this.olympics$.subscribe((data : olympicModel[]) => {
+    this.subscription = this.olympics$.subscribe((data : olympicModel[]) => {
       this.tabOlympicModel = data;
       if((this.tabOlympicModel != undefined)&&
        (this.tabOlympicModel[0].participations[0] != undefined)){
         this.drawDashBoard(this.tabOlympicModel);
       }
     });
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 
   drawDashBoard(input: olympicModel[]): void{
