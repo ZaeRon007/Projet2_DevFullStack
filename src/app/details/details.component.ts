@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { OlympicService } from '../core/services/olympic.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { olympicModel } from '../core/models/Olympic';
 import { Observable } from 'rxjs';
 import { participationsModel } from '../core/models/Participation';
@@ -30,12 +30,13 @@ export class DetailsComponent implements OnInit{
   showGridLines = true;
   
   constructor(private olympicService: OlympicService,
-              private route: ActivatedRoute){
+              private activatedRoute: ActivatedRoute,
+              private route: Router){
 
   }
 
   ngOnInit(): void {
-    this.CountryId = this.route.snapshot.params['id'];
+    this.CountryId = parseInt(this.activatedRoute.snapshot.params['id']);
 
     this.olympics$ = this.olympicService.getOlympics();
     this.olympics$.subscribe((data : olympicModel[]) => {
@@ -43,12 +44,17 @@ export class DetailsComponent implements OnInit{
       if((this.tabOlympicModel != undefined)&&
        (this.tabOlympicModel[0].participations[0] != undefined)){
 
-        this.country = this.getCountryNameById(this.CountryId);
-        this.NbrEntries = this.getNbrOfEntriesByCountry(this.CountryId);
-        this.TotalNbrMedals = this.getScoreByCountry(this.tabOlympicModel[this.CountryId - 1].participations);
-        this.TotalNbrAtheletes = this.getNbrOfAthletesByCountry(this.tabOlympicModel[this.CountryId - 1].participations);
-
-        this.setupDatas();
+        if(this.doesIdExist()){
+          this.country = this.getCountryNameById(this.CountryId);
+          this.NbrEntries = this.getNbrOfEntriesByCountry(this.CountryId);
+          this.TotalNbrMedals = this.getScoreByCountry(this.tabOlympicModel[this.CountryId - 1].participations);
+          this.TotalNbrAtheletes = this.getNbrOfAthletesByCountry(this.tabOlympicModel[this.CountryId - 1].participations);
+  
+          this.setupDatas();
+        }
+        else{
+          this.route.navigateByUrl('**');
+        }
       }
 
     
@@ -89,5 +95,22 @@ export class DetailsComponent implements OnInit{
                           value: this.tabOlympicModel[this.CountryId - 1].participations[i].medalsCount}];
     }
     this.data = [...this.data, {name: this.country, series: serie}];
+  }
+
+  doesIdExist(){
+    let localSet: Set<number> = this.getIds();
+
+    if(localSet.has(this.CountryId))
+      return true;
+    else
+      return false;
+  }
+
+  getIds():Set<number>{
+    let lSet: Set<number> = new Set<number>();
+    for(let i = 0; i < this.tabOlympicModel.length; i++){
+      lSet.add(this.tabOlympicModel[i].id);
+    }
+    return lSet;
   }
 }
