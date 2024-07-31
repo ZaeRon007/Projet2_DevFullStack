@@ -43,9 +43,9 @@ export class DashboardComponent implements OnInit, OnDestroy{
 
     if(input.length > 1){
 
-      this.NbrCountry = this.getCoutryNbr(input);
+      this.NbrCountry = this.getCountryNumber(input);
       this.NbrJOs = this.getNbrOfJOs(input);
-      this.namesAndScoreByCountry(input);
+      this.fillNamesAndScoreByCountry(input);
     }
   }
   
@@ -58,7 +58,7 @@ export class DashboardComponent implements OnInit, OnDestroy{
       this.data = [...this.data, { 'name' : country, 'value' : score }];
   }
 
-  getCoutryNbr(input : olympicModel[]): number{
+  getCountryNumber(input : olympicModel[]): number{
     let country : Set<string> = new Set<string>();
 
     for(let i = 0; i < input.length; i++){ 
@@ -81,13 +81,13 @@ export class DashboardComponent implements OnInit, OnDestroy{
     return Nbr.size;
   }
 
-  namesAndScoreByCountry(input : olympicModel[]){
+  fillNamesAndScoreByCountry(input : olympicModel[]){
     for(let i = 0; i < input.length; i++){
-      this.addElement(input[i].country, this.ScoreByCountry(input[i].participations));
+      this.addElement(input[i].country, this.getScoreByCountry(input[i].participations));
     }
   }
 
-  ScoreByCountry(input : participationsModel[]):number{
+  getScoreByCountry(input : participationsModel[]):number{
     let integer: number = 0;
 
     for(let j = 0; j < input.length; j++){ 
@@ -96,7 +96,7 @@ export class DashboardComponent implements OnInit, OnDestroy{
     return integer;
   }
 
-  searchIdByName(name: string): number{
+  getIdByName(name: string): number{
     for( let i = 0; i < this.tabOlympicModel.length; i++){
       if(name === this.data[i].name)
         return this.tabOlympicModel[i].id;      
@@ -105,6 +105,6 @@ export class DashboardComponent implements OnInit, OnDestroy{
   }
 
   onSelect(event: any): void {
-    this.route.navigateByUrl(`details/${this.searchIdByName(event.name)}`);
+    this.route.navigateByUrl(`details/${this.getIdByName(event.name)}`);
   }
 }

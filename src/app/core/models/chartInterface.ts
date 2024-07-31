@@ -1,3 +1,4 @@
+/* Several interfaces designed for ngx-chart pie-chart & line-chart */
 export interface pieChart {
     name : string,
     value: number
