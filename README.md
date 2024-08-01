@@ -1,41 +1,16 @@
 # OlympicGamesStarter Documentation :
 
-## App folders :
+## HOW TO LAUNCH APP :
 
-* core :
+Run `npm install` in the project directory.
 
-The core folder implements interfaces, models and a service :
+Then run `ng serve`.
 
-1. Interfaces are ones used to handle datas which ngx-chart understand.
+    -> Whould you like to share pseudonymous datas : `n`
 
-2. Models are used to handle datas from olympic.json.
-3. Olympic service is downloading all datas from olympic.json by a http request. It provides data by a subscribe action done in dashboard component and details component.
+Now you have to navigate to `http://localhost:4200/`.
 
-* dashboard :
-
-This component is the first interface specified in sketch. It includes general informations and a pie-chart showing us a score by a country. User can hover onto it to see the name of country plus the score value. If user performs a clic, he's redirected to details page.
-
-* details :
-
-Details component is the second interface specified in sketch. It includes more stats and a line-chart to illustrate performance by years per country. It implements a back button in order to go back to dashboard and allow user to select another country.
-
-* header :
-
-Header component implements the head of pages. It include a logo and the title of the page.
-
-* pages :
-
-Pages folder contains in a hand a home folder and in the other hand the not-found folder :
-
-1. The home component can be considered as the landing-page. It include app-dashboard which is our first interface for this project.
-
-2. The not-found component allow us to handle the not-found exception. It include a text "404 not found" and a back button redirecting to home component and indirectly to dashboard component.
-
-## Assets folders :
-
-This folder contains images used by our project and the data file olympic.json.
-
-# Requirements :
+# Setup :
 Don't forget to install :
 
 * NPM & NODE :
@@ -48,28 +23,37 @@ You can check versions with :
 
 `node -v` which should print `v20.16.0` and `npm -v`. with `10.8.1`
 
-* Ngx-chart :
+## App folders content :
 
-Run theses commands in a terminal located in the project directory :
+### core :
 
-`npm install @swimlane/ngx-charts`
+The core folder implements interfaces, models and a service :
 
-`npm install @types/d3 --save-dev`
+1. Interfaces are ones used to handle datas which ngx-chart understand.
 
-`npm install @angular/animations`
+2. Models are used to handle datas from olympic.json.
+3. Olympic service is downloading all datas from olympic.json by a http request. It provides data by a subscribe action done in dashboard component and details component.
 
-## Before launch :
+### dashboard :
 
-Run `npm install` in the project directory.
+This component is the first interface specified in sketch. It includes general informations and a pie-chart showing us a score by a country. User can hover onto it to see the name of country plus the score value. If user performs a clic, he's redirected to details page.
 
-Then run `npm i -g @angular/cli` to setup angular.
+### details :
 
-Whould you like to share pseudonymous datas : `n`
+Details component is the second interface specified in sketch. It includes more stats and a line-chart to illustrate performance by years per country. It implements a back button in order to go back to dashboard and allow user to select another country.
 
-## Development server
+### header :
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Header component implements the head of pages. It include a logo and the title of the page.
 
-## Build
+### pages :
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Pages folder contains in a hand a home folder and in the other hand the not-found folder :
+
+1. The home component can be considered as the landing-page. It include app-dashboard which is our first interface for this project.
+
+2. The not-found component allow us to handle the not-found exception. It include a text "404 not found" and a back button redirecting to home component and indirectly to dashboard component.
+
+## Assets folders :
+
+This folder contains images used by our project and the data file olympic.json.
