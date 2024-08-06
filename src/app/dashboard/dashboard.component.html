@@ -14,7 +14,7 @@
 
 <div #containeRef>
   <ngx-charts-pie-chart [results]="data" 
-                        [view]="[containeRef.clientWidth * 1.2,containeRef.clientHeight * 1.2]"
+                        [view]="[containeRef.offsetWidth,containeRef.offsetHeight]"
                         [labels]="true"                      
                         [maxLabelLength]="20"
                         (select)="onSelect($event)"

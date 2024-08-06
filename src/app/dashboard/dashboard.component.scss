@@ -14,3 +14,27 @@
     height: 14px;
     margin-top: -6px;
 }
+
+@media (max-width:390px){
+    .img {
+        width: 9px;
+        height: 9px;
+    }
+}
+
+@media (max-width:630px) and (min-width:391px){
+    .img {
+        width: 11px;
+        height: 11px;
+    }
+}
+
+@media (min-width:631px){
+    .img {
+        width: 20px;
+        height: 20px;
+        margin-top: -2px;
+    }
+}
+
+

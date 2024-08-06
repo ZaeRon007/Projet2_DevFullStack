@@ -7,16 +7,17 @@
 h2 {
     display: flex;
     justify-content: center;
-    font-size: 2.6rem;
+    margin: auto;
+    text-align: center;
     border: 1px solid #04838F;
     border-radius: 15px;
-    color: white;
     background-color: #04838F;
-    width: 400px;
+    color: white;
+    font-size: 2.6rem;
+    margin-top: 40px;
+    width: 90%;
     padding-top: 8px;
     padding-bottom: 8px;
-    margin: auto;
-    margin-top: 20px;
 }
 
 p {
@@ -31,6 +32,7 @@ p {
     flex-direction: row;
     justify-content: center;
     margin-top: 10px;
+    text-align: center;
 }
 
 .flex-row-fix{
@@ -45,7 +47,6 @@ p {
     flex-direction: column;
     padding-left: 30px;
     padding-right: 30px;
-    padding-bottom: -5px;
     border: 2px solid #04838F;
     border-radius: 15px;
     margin: 30px;
@@ -79,82 +80,93 @@ p {
     border-top: 7px solid #04838F !important;
 }
 
+.custom-margin-tooltip-p1{
+    margin-top: 10px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+.custom-margin-tooltip-p2{
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
 
-@media (max-width:600px){
+svg.ngx-charts {
+    height: 350px;
+}
+
+div.ngx-charts-outer {
+    height: 350px !important;
+}
+
+
+@media (max-width:390px){
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    .flex-column {
+        padding-left: 0px;
+        padding-right: 0px;
+        margin: 5px;
+    }
+    p, text, .small-text {
+        font-size: 0.8rem !important;
+    }
+
+    .custom-margin-p1 {
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+
+    // .custom-margin-tooltip-p1{
+    //     margin: 5px;
+    // }
+
+    path.pie-label-line, path.line {
+        stroke-width: 1px;
+    }
+
+    .ngx-charts-tooltip-content.position-top {
+        transform: translateY(30px) !important;
+    }
+}
+
+
+@media (max-width:630px) and (min-width:391px){
     h2 {
         font-size: 2rem;
-        width: 350px;
-        margin-top: 40px;
     }
 
     .flex-column {
         padding-left: 7px;
         padding-right: 7px;
-        margin: 5px;
+        margin: 15px;
     }
 
     .flex-row {
         margin-top: 10px;
-        flex-direction: column;
     }
 
-    p {
-        font-size: 1.1rem;
-    }
-
-    .pie-chart {
-        margin-top: 20px;
-        padding-top: -50px;
-        align-items: center;
-    }
-
-    .custom-margin-tooltip-p1{
-        margin-top: 10px;
-        margin-bottom: 0px;
-        margin-left: 0px;
-        margin-right: 0px;
-    }
-
-    .custom-margin-tooltip-p2{
-        margin-top: -10px;
-        margin-bottom: 10px;
-    }
-
-    .marginTop30px{
-        margin-top: 30px;
-    }
-
-    text.ng-star-inserted, text.pie-label {
-        font-size: 1.1rem !important;
+    p, text, .small-text {
+        font-size: 0.9rem !important;
     }
 
     path.pie-label-line, path.line {
         stroke-width: 1.5px;
     }
 
-    div.ngx-charts-outer {
-        height: 300px !important;
-        // transform: scale(0.8) translate(5px,-80px);
-    }
-
     .ngx-charts-tooltip-content.position-top {
-        transform: translateY(50px) !important;
+        transform: translateY(40px) !important;
     }
 
-    svg.ngx-charts {
-        height: 350px;
-    }
+    
 
-    text {
-        font-size: 1.2rem;
-    }
 }
 
-@media (min-width:601px){
+@media (min-width:631px){
     h2 {
         font-size: 2.5rem;
-        width: 600px;
-        margin-top: 40px;
     }
 
     .flex-column {
@@ -163,34 +175,7 @@ p {
         margin: 30px;
     }
 
-    p {
-        font-size: 1.4rem;
-    }
-
-    .pie-chart {
-        margin-top: 20px;
-        // padding-top: -50px;
-        align-items: center;
-        
-    }
-
-    .custom-margin-tooltip-p1{
-        margin-top: 10px;
-        margin-bottom: 0px;
-        margin-left: 0px;
-        margin-right: 0px;
-    }
-
-    .custom-margin-tooltip-p2{
-        margin-top: -10px;
-        margin-bottom: 10px;
-    }
-
-    .marginTop30px{
-        margin-top: 30px;
-    }
-
-    text.ng-star-inserted, text.pie-label {
+    p, text, .small-text {
         font-size: 1.764rem !important;
     }
 
@@ -198,28 +183,9 @@ p {
         stroke-width: 2.5px;
     }
 
-    // g.pie-chart {
-    //     transform: translate(920px, 350px);
-    // }
-
-    div.ngx-charts-outer {
-        height: 350px !important;
-        transform: scale(0.95);// translate(0px,0px);
-        // transform: translateX(width/2);
-    }
-
     .ngx-charts-tooltip-content.position-top {
-        transform: translateY(80px) !important;
+        transform: translateY(50px) !important;
     }
 
-    svg.ngx-charts {
-        height: 350px;
-        transform: scale(0.8) translate(0px,-100px);
-
-    }
-
-    text {
-        font-size: 1.8rem;
-    }
 
 }
