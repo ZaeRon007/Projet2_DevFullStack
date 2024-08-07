@@ -35,6 +35,14 @@ p {
     text-align: center;
 }
 
+.flex-row-details {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 10px;
+    text-align: center;
+}
+
 .flex-row-fix{
     display: flex;
     flex-direction: row;
@@ -43,6 +51,16 @@ p {
 }
 
 .flex-column {
+    display: flex;
+    flex-direction: column;
+    padding-left: 30px;
+    padding-right: 30px;
+    border: 2px solid #04838F;
+    border-radius: 15px;
+    margin: 30px;
+}
+
+.flex-column-details {
     display: flex;
     flex-direction: column;
     padding-left: 30px;
@@ -110,6 +128,19 @@ div.ngx-charts-outer {
         padding-right: 0px;
         margin: 5px;
     }
+
+    .flex-row-details {
+        flex-direction: column;
+        width: 50%;
+        margin: auto;
+    }
+
+    .flex-column-details {
+        padding-left: 7px;
+        padding-right: 7px;
+        margin: 10px;
+    }
+    
     p, text, .small-text {
         font-size: 0.8rem !important;
     }
@@ -118,11 +149,7 @@ div.ngx-charts-outer {
         margin-left: 5px;
         margin-right: 5px;
     }
-
-    // .custom-margin-tooltip-p1{
-    //     margin: 5px;
-    // }
-
+    
     path.pie-label-line, path.line {
         stroke-width: 1px;
     }
@@ -146,6 +173,18 @@ div.ngx-charts-outer {
 
     .flex-row {
         margin-top: 10px;
+    }
+
+    .flex-row-details {
+        flex-direction: column;
+        width: 50%;
+        margin: auto;
+    }
+
+    .flex-column-details {
+        padding-left: 7px;
+        padding-right: 7px;
+        margin: 10px;
     }
 
     p, text, .small-text {

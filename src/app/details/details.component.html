@@ -5,27 +5,29 @@
     <img class="img" src="./assets/images/retour.png" alt="flèche retour" routerLink="">
     <a routerLink="">GO BACK</a>
 </div>
-<div class="flex-row">
-    <div class="flex-column">
+<div class="flex-row-details">
+    <div class="flex-column-details">
         <p class="custom-margin-p1">Number of entries</p>
         <p class="custom-margin-p2 bold">{{NbrEntries}}</p>
     </div>
-    <div class="flex-column">
+    <div class="flex-column-details">
         <p class="custom-margin-p1">Total number medals</p>
         <p class="custom-margin-p2 bold">{{TotalNbrMedals}}</p>
     </div>
-    <div class="flex-column">
+    <div class="flex-column-details">
         <p class="custom-margin-p1">Total number of athletes</p>
         <p class="custom-margin-p2 bold">{{TotalNbrAtheletes}}</p>
     </div>
 </div>
-
-<ngx-charts-line-chart  [results]="data" 
-                        [xAxis]="showXAxis"
-                        [yAxis]="showYAxis"
-                        [showGridLines]="showGridLines"
-                        [showXAxisLabel]="showXAxisLabel"
-                        [xAxisLabel]="xLabel"
-                        [tooltipDisabled]="true"
-                        class="line-chart">
-</ngx-charts-line-chart>
+<div #containeRef>
+    <ngx-charts-line-chart  [results]="data" 
+                            [view]="[containeRef.offsetWidth,containeRef.offsetHeight]"
+                            [xAxis]="showXAxis"
+                            [yAxis]="showYAxis"
+                            [showGridLines]="showGridLines"
+                            [showXAxisLabel]="showXAxisLabel"
+                            [xAxisLabel]="xLabel"
+                            [tooltipDisabled]="true"
+                            class="line-chart">
+    </ngx-charts-line-chart>
+</div>
